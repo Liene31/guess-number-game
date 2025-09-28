@@ -4,14 +4,8 @@
   box-sizing: border-box;
 }
 
-/* For Game Logic Delete*/
-.restart-btn {
-  display: none;
-}
-/* ----------------------------------- */
-
 .landing-page {
-  /* display: none; */
+  display: block;
 
   div {
     border: 1px solid red;

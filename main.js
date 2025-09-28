@@ -1,86 +1,52 @@
-const numberInput = document.getElementById("number");
-const message = document.getElementById("message");
-const tentativeSpan = document.getElementById("tentative-message");
-const messageGamePara = document.getElementById("message-game");
-const button = document.getElementById("btn");
-const restartBtn = document.getElementById("restart-btn");
-const easyBtn = document.getElementById("lvl-easy");
-const mediumBtn = document.getElementById("lvl-medium");
-const difficultBtn = document.getElementById("lvl-difficult");
+const landingPageContainer = document.getElementById("landing-page");
+const gameLogicContainer = document.getElementById("game-logic-container");
+
+const tentativePara = document.getElementById("tentative-message");
+const messageResult = document.getElementById("message-result");
+
+const numberInput = document.getElementById("guess-input");
+const guessBtn = document.getElementById("guess-btn");
 
 let tentative;
 let maxNumber;
 let randomNumber;
 
-// Random Number
-// const randomNumber = Math.floor(Math.random() * maxNumber + 1);
-// console.log(randomNumber);
+// If level easy pressed landing page disappears and game logic opens
+document.getElementById("lvl-easy").addEventListener("click", () => {
+  landingPageContainer.style.display = "none";
+  gameLogicContainer.style.display = "block";
 
-easyBtn.addEventListener("click", () => {
-  document.getElementById("lvl-option").textContent = "1 - 10";
-  easyBtn.disabled = true;
-  mediumBtn.disabled = true;
-  difficultBtn.disabled = true;
   tentative = 3;
   maxNumber = 10;
   randomNumber = Math.floor(Math.random() * maxNumber + 1);
   console.log(randomNumber);
-  tentativeSpan.textContent = tentative;
+  tentativePara.textContent = `You have ${tentative} tentative`;
 });
 
-mediumBtn.addEventListener("click", () => {
-  document.getElementById("lvl-option").textContent = "1 - 100";
-  easyBtn.disabled = true;
-  mediumBtn.disabled = true;
-  difficultBtn.disabled = true;
-  tentative = 10;
-  maxNumber = 100;
-  randomNumber = Math.floor(Math.random() * maxNumber + 1);
-  console.log(randomNumber);
-  tentativeSpan.textContent = tentative;
-});
-
-difficultBtn.addEventListener("click", () => {
-  document.getElementById("lvl-option").textContent = "1 - 1000";
-  easyBtn.disabled = true;
-  mediumBtn.disabled = true;
-  difficultBtn.disabled = true;
-  tentative = 15;
-  maxNumber = 1000;
-  randomNumber = Math.floor(Math.random() * maxNumber + 1);
-  console.log(randomNumber);
-  tentativeSpan.textContent = tentative;
-});
-
-// Button Go
-document.getElementById("btn").addEventListener("click", () => {
+// Button Guess
+guessBtn.addEventListener("click", () => {
   const chosenNumber = numberInput.valueAsNumber;
 
   if (isNaN(chosenNumber) || chosenNumber < 1 || chosenNumber > maxNumber) {
-    message.textContent = "Invalid number";
+    messageResult.textContent = "Invalid number";
   } else if (chosenNumber === randomNumber) {
-    message.textContent = "Bingo";
-    messageGamePara.textContent = "You Won";
-    btn.disabled = true;
+    messageResult.textContent = "Bingo";
+    messageResult.textContent = "You Won";
+    guessBtn.disabled = true;
     restartBtn.style.display = "block";
   } else if (chosenNumber > randomNumber) {
-    message.textContent = "It's too big";
+    messageResult.textContent = "It's too big";
     tentative--;
-    tentativeSpan.textContent = tentative;
+    tentativePara.textContent = `You have ${tentative} tentative`;
   } else {
-    message.textContent = "It's too small";
+    messageResult.textContent = "It's too small";
     tentative--;
-    tentativeSpan.textContent = tentative;
+    tentativePara.textContent = `You have ${tentative} tentative`;
   }
 
   if (tentative === 0) {
-    messageGamePara.textContent = "Game Over";
-    btn.disabled = true;
+    messageResult.textContent = "Game Over";
+    guessBtn.disabled = true;
     restartBtn.style.display = "block";
   }
-});
-
-//Button Restart the game
-restartBtn.addEventListener("click", () => {
-  location.reload();
 });
