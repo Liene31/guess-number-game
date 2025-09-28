@@ -18,12 +18,12 @@
         <p>Easy</p>
         <p>1 - 10</p>
       </div>
-      <div class="lvl-medium">
+      <div class="lvl-medium" id="lvl-medium">
         <img src="./images/elf.png" alt="image of elf" width="90px" />
         <p>Medium</p>
-        <p>1 - 50</p>
+        <p>1 - 100</p>
       </div>
-      <div class="lvl-difficult">
+      <div class="lvl-difficult" id="lvl-difficult">
         <img src="./images/halfling.png" alt="image of halfling" width="90px" />
         <p>Difficult</p>
         <p>1 - 1000</p>
@@ -34,7 +34,12 @@
     <!-- Game Play Logic -->
     <div class="game-logic-container" id="game-logic-container">
       <h2>Guess the Number</h2>
-      <img src="./images/dwarf.png" alt="image of dwarf" width="100px" />
+      <img
+        src=""
+        alt="image of dnd character"
+        width="100px"
+        id="character-img"
+      />
       <form>
         <label for="guess">What's your guess ?</label>
         <input type="number" name="guess" id="guess-input" />
@@ -42,6 +47,9 @@
       <button type="button" id="guess-btn">Guess</button>
       <p id="message-result">Message of the result</p>
       <p id="tentative-message"></p>
+      <button type="button" class="new-game-btn" id="new-game-btn">
+        Start New Game
+      </button>
     </div>
   </body>
 </html>

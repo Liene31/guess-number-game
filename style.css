@@ -17,3 +17,7 @@
 .game-logic-container {
   display: none;
 }
+
+.new-game-btn {
+  display: none;
+}
