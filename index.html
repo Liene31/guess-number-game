@@ -10,20 +10,59 @@
     <title>Guess a number</title>
   </head>
   <body>
-    <button id="lvl-easy">Easy</button>
-    <button id="lvl-medium">Medium</button>
-    <button id="lvl-difficult">Difficult</button>
-    <form>
-      <label for="number"
-        >Propose a number between <span id="lvl-option"></span
-      ></label>
-      <input type="number" id="number" />
-      <button type="button" id="btn">Go</button>
-    </form>
-    <p id="message">Message</p>
-    <p id="message-game">
-      You have <span id="tentative-message"></span> tentative
-    </p>
-    <button class="restart-btn" id="restart-btn">Restart</button>
+    <!-- Game Logic to delete afterwards -->
+    <div class="game-logic">
+      <button id="lvl-easy">Easy</button>
+      <button id="lvl-medium">Medium</button>
+      <button id="lvl-difficult">Difficult</button>
+      <form>
+        <label for="number"
+          >Propose a number between <span id="lvl-option"></span
+        ></label>
+        <input type="number" id="number" />
+        <button type="button" id="btn">Go</button>
+      </form>
+      <p id="message">Message</p>
+      <p id="message-game">
+        You have <span id="tentative-message"></span> tentative
+      </p>
+      <button class="restart-btn" id="restart-btn">Restart</button>
+    </div>
+    <br /><br /><br /><br /><br />
+    <!-- ----------------------------------------------------- -->
+
+    <!-- Landing Page, disappears after difficulty level chosen -->
+    <div class="landing-page">
+      <h1>Game - Guess a number</h1>
+      <div class="lvl-easy">
+        <img src="./images/dwarf.png" alt="image of dwarf" width="90px" />
+        <p>Easy</p>
+        <p>1 - 10</p>
+      </div>
+      <div class="lvl-medium">
+        <img src="./images/elf.png" alt="image of elf" width="90px" />
+        <p>Medium</p>
+        <p>1 - 50</p>
+      </div>
+      <div class="lvl-difficult">
+        <img src="./images/halfling.png" alt="image of halfling" width="90px" />
+        <p>Difficult</p>
+        <p>1 - 1000</p>
+      </div>
+    </div>
+    <!-- ------------------------------------------------------- -->
+
+    <!-- Game Play Logic -->
+    <div class="game-logic-container">
+      <h2>Guess the Number</h2>
+      <img src="./images/dwarf.png" alt="image of dwarf" width="100px" />
+      <form>
+        <label for="guess">What's your guess ?</label>
+        <input type="number" name="guess" id="guess-input" />
+      </form>
+      <button type="button">Guess</button>
+      <p>Message of the result</p>
+      <p>Tentative</p>
+    </div>
   </body>
 </html>
