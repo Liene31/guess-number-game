@@ -3,6 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=MedievalSharp&family=Uncial+Antiqua&display=swap"
+      rel="stylesheet"
+    />
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
     <!-- JS -->
@@ -10,46 +17,59 @@
     <title>Guess a number</title>
   </head>
   <body>
-    <!-- Landing Page, disappears after difficulty level chosen -->
-    <div class="landing-page" id="landing-page">
-      <h1>Game - Guess a number</h1>
-      <div class="lvl-easy" id="lvl-easy">
-        <img src="./images/dwarf.png" alt="image of dwarf" width="90px" />
-        <p>Easy</p>
-        <p>1 - 10</p>
+    <div class="container">
+      <!-- Landing Page, disappears after difficulty level chosen -->
+      <div class="landing-page" id="landing-page">
+        <h1>Guess a number</h1>
+        <div class="level" id="lvl-easy">
+          <img src="./images/dwarf.png" alt="image of dwarf" width="110px" />
+          <div class="level-card">
+            <p>Easy Level</p>
+            <p>1 - 10</p>
+          </div>
+        </div>
+        <div class="level" id="lvl-medium">
+          <img src="./images/elf.png" alt="image of elf" width="110px" />
+          <div class="level-card">
+            <p>Medium Level</p>
+            <p>1 - 100</p>
+          </div>
+        </div>
+        <div class="level" id="lvl-difficult">
+          <img
+            src="./images/halfling.png"
+            alt="image of halfling"
+            width="110px"
+          />
+          <div class="level-card">
+            <p>Difficult Level</p>
+            <p>1 - 1000</p>
+          </div>
+        </div>
       </div>
-      <div class="lvl-medium" id="lvl-medium">
-        <img src="./images/elf.png" alt="image of elf" width="90px" />
-        <p>Medium</p>
-        <p>1 - 100</p>
-      </div>
-      <div class="lvl-difficult" id="lvl-difficult">
-        <img src="./images/halfling.png" alt="image of halfling" width="90px" />
-        <p>Difficult</p>
-        <p>1 - 1000</p>
-      </div>
-    </div>
-    <!-- ------------------------------------------------------- -->
+      <!-- ------------------------------------------------------- -->
 
-    <!-- Game Play Logic -->
-    <div class="game-logic-container" id="game-logic-container">
-      <h2>Guess the Number</h2>
-      <img
-        src=""
-        alt="image of dnd character"
-        width="100px"
-        id="character-img"
-      />
-      <form>
-        <label for="guess">What's your guess ?</label>
-        <input type="number" name="guess" id="guess-input" />
-      </form>
-      <button type="button" id="guess-btn">Guess</button>
-      <p id="message-result">Message of the result</p>
-      <p id="tentative-message"></p>
-      <button type="button" class="new-game-btn" id="new-game-btn">
-        Start New Game
-      </button>
+      <!-- Game Play Logic -->
+
+      <div class="game-logic-container" id="game-logic-container">
+        <h2>Guess the Number</h2>
+        <img
+          src=""
+          alt="image of dnd character"
+          width="100px"
+          id="character-img"
+        />
+        <form>
+          <label for="guess">What's your guess ?</label>
+          <input type="number" name="guess" id="guess-input" />
+        </form>
+        <button type="button" class="guess-btn" id="guess-btn">Guess</button>
+        <p class="message-result" id="message-result"></p>
+        <p id="tentative-message"></p>
+        <button type="button" class="new-game-btn" id="new-game-btn">
+          Start New Game
+        </button>
+      </div>
     </div>
   </body>
 </html>

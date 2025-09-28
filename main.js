@@ -16,7 +16,7 @@ let randomNumber;
 // If level easy pressed landing page disappears and game logic opens
 document.getElementById("lvl-easy").addEventListener("click", () => {
   landingPageContainer.style.display = "none";
-  gameLogicContainer.style.display = "block";
+  gameLogicContainer.style.display = "flex";
   characterImage.src = "./images/dwarf.png";
 
   tentative = 3;
@@ -29,7 +29,7 @@ document.getElementById("lvl-easy").addEventListener("click", () => {
 // If level medium pressed landing page disappears and game logic opens
 document.getElementById("lvl-medium").addEventListener("click", () => {
   landingPageContainer.style.display = "none";
-  gameLogicContainer.style.display = "block";
+  gameLogicContainer.style.display = "flex";
   characterImage.src = "./images/elf.png";
 
   tentative = 10;
@@ -42,7 +42,7 @@ document.getElementById("lvl-medium").addEventListener("click", () => {
 // If level difficult pressed landing page disappears and game logic opens
 document.getElementById("lvl-difficult").addEventListener("click", () => {
   landingPageContainer.style.display = "none";
-  gameLogicContainer.style.display = "block";
+  gameLogicContainer.style.display = "flex";
   characterImage.src = "./images/halfling.png";
 
   tentative = 15;
@@ -57,27 +57,33 @@ guessBtn.addEventListener("click", () => {
   const chosenNumber = numberInput.valueAsNumber;
 
   if (isNaN(chosenNumber) || chosenNumber < 1 || chosenNumber > maxNumber) {
+    messageResult.style.display = "block";
     messageResult.textContent = "Invalid number";
   } else if (chosenNumber === randomNumber) {
-    messageResult.textContent = "Bingo";
+    messageResult.style.display = "block";
     messageResult.textContent = "You Won";
     guessBtn.disabled = true;
     newGameBtn.style.display = "block";
   } else if (chosenNumber > randomNumber) {
+    messageResult.style.display = "block";
     messageResult.textContent = "It's too big";
     tentative--;
     tentativePara.textContent = `You have ${tentative} tentative`;
   } else {
+    messageResult.style.display = "block";
     messageResult.textContent = "It's too small";
     tentative--;
     tentativePara.textContent = `You have ${tentative} tentative`;
   }
 
   if (tentative === 0) {
+    messageResult.style.display = "block";
     messageResult.textContent = "Game Over";
     guessBtn.disabled = true;
     newGameBtn.style.display = "block";
   }
+
+  document.forms[0].reset();
 });
 
 //Button Restart the game
