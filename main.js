@@ -87,6 +87,14 @@ guessBtn.addEventListener("click", () => {
   document.forms[0].reset();
 });
 
+// Button Guess on Enter
+numberInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    guessBtn.click();
+  }
+});
+
 //Button Restart the game
 newGameBtn.addEventListener("click", () => {
   location.reload();
