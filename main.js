@@ -23,7 +23,7 @@ document.getElementById("lvl-easy").addEventListener("click", () => {
   maxNumber = 10;
   randomNumber = Math.floor(Math.random() * maxNumber + 1);
   console.log(randomNumber);
-  tentativePara.textContent = `You have ${tentative} tentative`;
+  tentativePara.textContent = ` ${"".padEnd(tentative * 2, "💀")} `;
 });
 
 // If level medium pressed landing page disappears and game logic opens
@@ -36,7 +36,7 @@ document.getElementById("lvl-medium").addEventListener("click", () => {
   maxNumber = 100;
   randomNumber = Math.floor(Math.random() * maxNumber + 1);
   console.log(randomNumber);
-  tentativePara.textContent = `You have ${tentative} tentative`;
+  tentativePara.textContent = ` ${"".padEnd(tentative * 2, "💀")} `;
 });
 
 // If level difficult pressed landing page disappears and game logic opens
@@ -49,7 +49,7 @@ document.getElementById("lvl-difficult").addEventListener("click", () => {
   maxNumber = 1000;
   randomNumber = Math.floor(Math.random() * maxNumber + 1);
   console.log(randomNumber);
-  tentativePara.textContent = `You have ${tentative} tentative`;
+  tentativePara.textContent = ` ${"".padEnd(tentative * 2, "💀")} `;
 });
 
 // Button Guess
@@ -64,16 +64,17 @@ guessBtn.addEventListener("click", () => {
     messageResult.textContent = "You Won";
     guessBtn.disabled = true;
     newGameBtn.style.display = "block";
+    tentativePara.style.display = "none";
   } else if (chosenNumber > randomNumber) {
     messageResult.style.display = "block";
     messageResult.textContent = "It's too big";
     tentative--;
-    tentativePara.textContent = `You have ${tentative} tentative`;
+    tentativePara.textContent = ` ${"".padEnd(tentative * 2, "💀")} `; // changed
   } else {
     messageResult.style.display = "block";
     messageResult.textContent = "It's too small";
     tentative--;
-    tentativePara.textContent = `You have ${tentative} tentative`;
+    tentativePara.textContent = ` ${"".padEnd(tentative * 2, "💀")} `; //changed
   }
 
   if (tentative === 0) {
